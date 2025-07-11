@@ -7,8 +7,8 @@ class MyWindow(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("My First PyQt5 App")
-        self.setGeometry(100, 100, 300, 200)
+        self.setWindowTitle("Shipping Forms")
+        self.setGeometry(100, 100, 800,800)
 
         # Create a label and button
         self.label = QLabel("Hello, PyQt5!", self)
