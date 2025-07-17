@@ -150,7 +150,7 @@ class Ui_mainFrame(object):
 
     def retranslateUi(self, mainFrame):
         # Set all UI text (for translation/localization)
-        mainFrame.setWindowTitle(QCoreApplication.translate("mainFrame", u"Dialog", None))
+        mainFrame.setWindowTitle(QCoreApplication.translate("mainFrame", u"Shipping Form Manager", None))
         self.setTodayDateButton.setText(QCoreApplication.translate("mainFrame", u"Use Today's Date", None))
         self.dateLabel.setText(QCoreApplication.translate("mainFrame", u"Date", None))
         self.senderLabel.setText(QCoreApplication.translate("mainFrame", u"Sender", None))
