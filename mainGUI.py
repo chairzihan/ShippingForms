@@ -10,7 +10,11 @@
 
 from PyQt5.QtWidgets import QDialogButtonBox, QComboBox, QProgressBar, QDateEdit, QPushButton, QLabel, QLineEdit, QSpinBox
 from PyQt5.QtCore import QCoreApplication, QRect, QMetaObject
+
+from senderGUI import Ui_SenderInformation
+
 import sys
+
 
 # Main UI class for the Shipping Form
 class Ui_mainFrame(object):
@@ -18,128 +22,132 @@ class Ui_mainFrame(object):
         # Set up the main frame
         if not mainFrame.objectName():
             mainFrame.setObjectName(u"mainFrame")
-        mainFrame.resize(506, 439)
+        mainFrame.resize(700, 600)
 
         # Sender selection
         self.senderSelect = QComboBox(mainFrame)
         self.senderSelect.setObjectName(u"senderSelect")
-        self.senderSelect.setGeometry(QRect(200, 50, 101, 22))
+        self.senderSelect.setGeometry(QRect(270, 70, 150, 32))
 
         # Progress bar
         self.progressBar = QProgressBar(mainFrame)
         self.progressBar.setObjectName(u"progressBar")
-        self.progressBar.setGeometry(QRect(30, 380, 451, 31))
-        self.progressBar.setValue(24)
+        self.progressBar.setGeometry(QRect(30, 520, 631, 41))
+        self.progressBar.setValue(0)
 
         # Date edit and related controls
         self.dateEdit = QDateEdit(mainFrame)
         self.dateEdit.setObjectName(u"dateEdit")
-        self.dateEdit.setGeometry(QRect(20, 50, 110, 22))
+        self.dateEdit.setGeometry(QRect(40, 70, 150, 32))
 
         self.setTodayDateButton = QPushButton(mainFrame)
         self.setTodayDateButton.setObjectName(u"setTodayDateButton")
-        self.setTodayDateButton.setGeometry(QRect(20, 80, 111, 23))
+        self.setTodayDateButton.setGeometry(QRect(40, 110, 151, 32))
 
         self.dateButtonBox = QDialogButtonBox(mainFrame)
         self.dateButtonBox.setObjectName(u"dateButtonBox")
-        self.dateButtonBox.setGeometry(QRect(20, 110, 111, 20))
+        self.dateButtonBox.setGeometry(QRect(40, 150, 151, 32))
         self.dateButtonBox.setStandardButtons(QDialogButtonBox.Cancel | QDialogButtonBox.Ok)
 
         self.dateLabel = QLabel(mainFrame)
         self.dateLabel.setObjectName(u"dateLabel")
-        self.dateLabel.setGeometry(QRect(20, 30, 81, 21))
+        self.dateLabel.setGeometry(QRect(40, 40, 121, 31))
 
         # Sender controls
         self.senderLabel = QLabel(mainFrame)
         self.senderLabel.setObjectName(u"senderLabel")
-        self.senderLabel.setGeometry(QRect(200, 30, 61, 20))
+        self.senderLabel.setGeometry(QRect(270, 40, 91, 31))
 
         self.newSenderButton = QPushButton(mainFrame)
         self.newSenderButton.setObjectName(u"newSenderButton")
-        self.newSenderButton.setGeometry(QRect(200, 110, 101, 23))
+        self.newSenderButton.setGeometry(QRect(270, 150, 151, 32))
+
+    
+
+        
 
         # Receiver controls
         self.receiverSelect = QComboBox(mainFrame)
         self.receiverSelect.setObjectName(u"receiverSelect")
-        self.receiverSelect.setGeometry(QRect(370, 50, 101, 22))
+        self.receiverSelect.setGeometry(QRect(470, 70, 150, 32))
 
         self.receiverLabel = QLabel(mainFrame)
         self.receiverLabel.setObjectName(u"receiverLabel")
-        self.receiverLabel.setGeometry(QRect(370, 30, 61, 21))
+        self.receiverLabel.setGeometry(QRect(470, 40, 91, 31))
 
         self.newReceiverButton = QPushButton(mainFrame)
         self.newReceiverButton.setObjectName(u"newReceiverButton")
-        self.newReceiverButton.setGeometry(QRect(370, 110, 101, 23))
+        self.newReceiverButton.setGeometry(QRect(470, 150, 151, 32))
 
         self.lineEdit = QLineEdit(mainFrame)
         self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setGeometry(QRect(200, 80, 101, 20))
+        self.lineEdit.setGeometry(QRect(270, 110, 151, 28))
 
         self.receiverInput = QLineEdit(mainFrame)
         self.receiverInput.setObjectName(u"receiverInput")
-        self.receiverInput.setGeometry(QRect(370, 80, 101, 20))
+        self.receiverInput.setGeometry(QRect(470, 110, 151, 28))
 
         # Module selection label
         self.moduleSeleLabel = QLabel(mainFrame)
         self.moduleSeleLabel.setObjectName(u"moduleSeleLabel")
-        self.moduleSeleLabel.setGeometry(QRect(30, 150, 231, 31))
+        self.moduleSeleLabel.setGeometry(QRect(40, 200, 300, 41))
 
         # MDAN-C controls
         self.mdanCQuaInput = QSpinBox(mainFrame)
         self.mdanCQuaInput.setObjectName(u"mdanCQuaInput")
-        self.mdanCQuaInput.setGeometry(QRect(30, 230, 61, 22))
+        self.mdanCQuaInput.setGeometry(QRect(40, 300, 91, 32))
 
         self.mdanCLabel = QLabel(mainFrame)
         self.mdanCLabel.setObjectName(u"mdanCLabel")
-        self.mdanCLabel.setGeometry(QRect(30, 180, 51, 31))
+        self.mdanCLabel.setGeometry(QRect(40, 250, 81, 31))
 
         self.mdanCQuaLabel = QLabel(mainFrame)
         self.mdanCQuaLabel.setObjectName(u"mdanCQuaLabel")
-        self.mdanCQuaLabel.setGeometry(QRect(30, 200, 51, 31))
+        self.mdanCQuaLabel.setGeometry(QRect(40, 270, 81, 31))
 
         # MDBN-B controls
         self.mdbnBQuaLabel = QLabel(mainFrame)
         self.mdbnBQuaLabel.setObjectName(u"mdbnBQuaLabel")
-        self.mdbnBQuaLabel.setGeometry(QRect(110, 200, 51, 31))
+        self.mdbnBQuaLabel.setGeometry(QRect(170, 270, 81, 31))
 
         self.mdbnBInput = QSpinBox(mainFrame)
         self.mdbnBInput.setObjectName(u"mdbnBInput")
-        self.mdbnBInput.setGeometry(QRect(110, 230, 61, 22))
+        self.mdbnBInput.setGeometry(QRect(170, 300, 91, 32))
 
         self.mdbnBLabel = QLabel(mainFrame)
         self.mdbnBLabel.setObjectName(u"mdbnBLabel")
-        self.mdbnBLabel.setGeometry(QRect(110, 180, 51, 31))
+        self.mdbnBLabel.setGeometry(QRect(170, 250, 81, 31))
 
         # MGAO-A controls
         self.mgaoAQuaLabel = QLabel(mainFrame)
         self.mgaoAQuaLabel.setObjectName(u"mgaoAQuaLabel")
-        self.mgaoAQuaLabel.setGeometry(QRect(190, 200, 51, 31))
+        self.mgaoAQuaLabel.setGeometry(QRect(300, 270, 81, 31))
 
         self.mgaoAInput = QSpinBox(mainFrame)
         self.mgaoAInput.setObjectName(u"mgaoAInput")
-        self.mgaoAInput.setGeometry(QRect(190, 230, 61, 22))
+        self.mgaoAInput.setGeometry(QRect(300, 300, 91, 32))
 
         self.mgaoA = QLabel(mainFrame)
         self.mgaoA.setObjectName(u"mgaoA")
-        self.mgaoA.setGeometry(QRect(190, 180, 51, 31))
+        self.mgaoA.setGeometry(QRect(300, 250, 81, 31))
 
         # MDBO-A controls
         self.mdboAQuaLabel = QLabel(mainFrame)
         self.mdboAQuaLabel.setObjectName(u"mdboAQuaLabel")
-        self.mdboAQuaLabel.setGeometry(QRect(270, 200, 51, 31))
+        self.mdboAQuaLabel.setGeometry(QRect(430, 270, 81, 31))
 
         self.mdboAInput = QSpinBox(mainFrame)
         self.mdboAInput.setObjectName(u"mdboAInput")
-        self.mdboAInput.setGeometry(QRect(270, 230, 61, 22))
+        self.mdboAInput.setGeometry(QRect(430, 300, 91, 32))
 
         self.mdboA = QLabel(mainFrame)
         self.mdboA.setObjectName(u"mdboA")
-        self.mdboA.setGeometry(QRect(270, 180, 51, 31))
+        self.mdboA.setGeometry(QRect(430, 250, 81, 31))
 
         # Finish button
         self.finishButton = QPushButton(mainFrame)
         self.finishButton.setObjectName(u"finishButton")
-        self.finishButton.setGeometry(QRect(120, 330, 271, 23))
+        self.finishButton.setGeometry(QRect(200, 400, 300, 41))
 
         # Retranslate UI (set text)
         self.retranslateUi(mainFrame)

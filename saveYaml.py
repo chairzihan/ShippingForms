@@ -9,7 +9,7 @@ def get_config_path():
     home = Path.home()
 
     
-    config_dir = home / '.yourapp'
+    config_dir = home / '.shippingForms'
     config_dir.mkdir(exist_ok=True)  # create if doesn't exist
 
     # YAML config file path
