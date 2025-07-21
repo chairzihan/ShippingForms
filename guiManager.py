@@ -2,9 +2,8 @@ from PyQt5.QtWidgets import QApplication, QDialog
 from mainGUI import Ui_mainFrame
 from senderGUI import Ui_SenderInformation
 from receiverGUI import Ui_senderFrame
-import warnings
 
-warnings.filterwarnings("ignore", category=DeprecationWarning)
+
 
 class SenderDialog(QDialog):
     def __init__(self):

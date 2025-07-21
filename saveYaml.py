@@ -7,15 +7,15 @@ from pyaml import dump
 def get_config_path():
     # Get the user home directory
     home = Path.home()
-
     
     config_dir = home / '.shippingForms'
     config_dir.mkdir(exist_ok=True)  # create if doesn't exist
 
     # YAML config file path
     config_file = config_dir / 'config.yaml'
-
+    print(config_file)
     return config_file
+ 
 
 def load_config():
     config_file = get_config_path()
