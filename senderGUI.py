@@ -21,18 +21,29 @@ class Ui_SenderInformation(object):
         self.finishButton.setGeometry(QRect(40, 250, 341, 32))
         self.finishButton.setOrientation(Qt.Horizontal)
         self.finishButton.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
-        self.emailInput = QPlainTextEdit(SenderInformation)
-        self.emailInput.setObjectName(u"emailInput")
-        self.emailInput.setGeometry(QRect(30, 180, 341, 41))
+
+        # Name input
+        self.nameLabel = QLabel(SenderInformation)
+        self.nameLabel.setObjectName(u"nameLabel")
+        self.nameLabel.setGeometry(QRect(30, 10, 251, 21))
+        self.nameInput = QPlainTextEdit(SenderInformation)
+        self.nameInput.setObjectName(u"nameInput")
+        self.nameInput.setGeometry(QRect(30, 30, 341, 41))
+
+        self.phoneNumberLabel = QLabel(SenderInformation)
+        self.phoneNumberLabel.setObjectName(u"phoneNumberLabel")
+        self.phoneNumberLabel.setGeometry(QRect(30, 80, 311, 21))
+        self.phoneNumberInput = QPlainTextEdit(SenderInformation)
+        self.phoneNumberInput.setObjectName(u"phoneNumberInput")
+        self.phoneNumberInput.setGeometry(QRect(30, 100, 341, 41))
+
         self.emailLabel = QLabel(SenderInformation)
         self.emailLabel.setObjectName(u"emailLabel")
         self.emailLabel.setGeometry(QRect(30, 150, 251, 21))
-        self.phoneNumberLabel = QLabel(SenderInformation)
-        self.phoneNumberLabel.setObjectName(u"phoneNumberLabel")
-        self.phoneNumberLabel.setGeometry(QRect(30, 50, 311, 21))
-        self.phoneNumberInput = QPlainTextEdit(SenderInformation)
-        self.phoneNumberInput.setObjectName(u"phoneNumberInput")
-        self.phoneNumberInput.setGeometry(QRect(30, 80, 341, 41))
+        self.emailInput = QPlainTextEdit(SenderInformation)
+        self.emailInput.setObjectName(u"emailInput")
+        self.emailInput.setGeometry(QRect(30, 180, 341, 41))
+
         self.notificationCheckBox = QCheckBox(SenderInformation)
         self.notificationCheckBox.setObjectName(u"notificationCheckBox")
         self.notificationCheckBox.setGeometry(QRect(30, 230, 201, 18))
@@ -46,7 +57,8 @@ class Ui_SenderInformation(object):
 
     def retranslateUi(self, SenderInformation):
         SenderInformation.setWindowTitle(QCoreApplication.translate("SenderInformation", u"Dialog", None))
-        self.emailLabel.setText(QCoreApplication.translate("SenderInformation", u"Please input the e-mail associated with this sender:", None))
+        self.nameLabel.setText(QCoreApplication.translate("SenderInformation", u"Please input the name of this sender:", None))
         self.phoneNumberLabel.setText(QCoreApplication.translate("SenderInformation", u"Please input the phone number associated with this sender:", None))
+        self.emailLabel.setText(QCoreApplication.translate("SenderInformation", u"Please input the e-mail associated with this sender:", None))
         self.notificationCheckBox.setText(QCoreApplication.translate("SenderInformation", u"Be notified of shipment WB #?", None))
     # retranslateUi
