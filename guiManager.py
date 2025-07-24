@@ -7,11 +7,13 @@ from PyQt5.QtCore import QDate
 progress = 0
 
 class SenderDialog(QDialog):
-    def __init__(self):
+    def __init__(self, main_dialog):
         super().__init__()
         self.ui = Ui_SenderInformation()
         self.ui.setupUi(self)
         self.ui.finishButton.clicked.connect(self.saveSender)
+        self.main_dialog = main_dialog
+        
     
     def saveSender(self):
         senderData ={
@@ -22,15 +24,17 @@ class SenderDialog(QDialog):
         }
         from yamlManager import add_sender
         add_sender(senderData)
+        self.main_dialog.updateGUI()
 
     
 
 class ReceiverDialog(QDialog):
-    def __init__(self):
+    def __init__(self, main_dialog):
         super().__init__()
         self.ui = Ui_senderFrame()
         self.ui.setupUi(self)
         self.ui.finishButton.clicked.connect(self.saveReceiver)
+        self.main_dialog = main_dialog
 
     def saveReceiver(self):
         receiverData = {
@@ -43,6 +47,8 @@ class ReceiverDialog(QDialog):
             }
         from yamlManager import add_receiver
         add_receiver(receiverData)
+        self.main_dialog.updateGUI()
+    
     
 
     
@@ -55,15 +61,16 @@ class MainDialog(QDialog):
         self.ui.newSenderButton.clicked.connect(self.open_sender_dialog)
         self.ui.newReceiverButton.clicked.connect(self.openReceiverDialog)
         self.ui.setTodayDateButton.clicked.connect(self.setTodayDate)
+        self.updateGUI()
 
     #open sender screen
     def open_sender_dialog(self):
-        dialog = SenderDialog()
+        dialog = SenderDialog(self)
         dialog.exec_() 
 
     #open receiver screen
     def openReceiverDialog(self):
-        receiverFrame = ReceiverDialog()
+        receiverFrame = ReceiverDialog(self)
         receiverFrame.exec_()
 
     #set Today's date
@@ -73,7 +80,18 @@ class MainDialog(QDialog):
         progress=25
         self.ui.progressBar.setValue(progress)
 
-    
+    def updateGUI(self):
+        from yamlManager import get_receivers
+        from yamlManager import get_senders
+        receivers = get_receivers()
+        senders = get_senders()
+        # Clear previous items before adding new ones
+        self.ui.receiverSelect.clear()
+        self.ui.senderSelect.clear()
+        names = [r.get("Contact Name", "") for r in receivers]
+        self.ui.receiverSelect.addItems(names)
+        sNames = [r.get("Name", "") for r in senders]
+        self.ui.senderSelect.addItems(sNames)
     
     
 

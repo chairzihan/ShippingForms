@@ -62,10 +62,6 @@ class Ui_mainFrame(object):
         self.newSenderButton.setObjectName(u"newSenderButton")
         self.newSenderButton.setGeometry(QRect(270, 150, 151, 32))
 
-    
-
-        
-
         # Receiver controls
         self.receiverSelect = QComboBox(mainFrame)
         self.receiverSelect.setObjectName(u"receiverSelect")
@@ -78,14 +74,6 @@ class Ui_mainFrame(object):
         self.newReceiverButton = QPushButton(mainFrame)
         self.newReceiverButton.setObjectName(u"newReceiverButton")
         self.newReceiverButton.setGeometry(QRect(470, 150, 151, 32))
-
-        self.lineEdit = QLineEdit(mainFrame)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setGeometry(QRect(270, 110, 151, 28))
-
-        self.receiverInput = QLineEdit(mainFrame)
-        self.receiverInput.setObjectName(u"receiverInput")
-        self.receiverInput.setGeometry(QRect(470, 110, 151, 28))
 
         # Module selection label
         self.moduleSeleLabel = QLabel(mainFrame)
