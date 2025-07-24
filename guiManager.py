@@ -91,9 +91,7 @@ class MainDialog(QDialog):
         names = [r.get("Contact Name", "") for r in receivers]
         self.ui.receiverSelect.addItems(names)
         sNames = [r.get("Name", "") for r in senders]
-        self.ui.senderSelect.addItems(sNames)
-    
-    
+        self.ui.senderSelect.addItems(sNames) 
 
 
 if __name__ == "__main__":
