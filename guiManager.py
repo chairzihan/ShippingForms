@@ -2,7 +2,6 @@ from PyQt5.QtWidgets import QApplication, QDialog
 from mainGUI import Ui_mainFrame
 from senderGUI import Ui_SenderInformation
 from receiverGUI import Ui_senderFrame
-import datetime
 from PyQt5.QtCore import QDate
 
 progress = 0
@@ -12,23 +11,27 @@ class SenderDialog(QDialog):
         super().__init__()
         self.ui = Ui_SenderInformation()
         self.ui.setupUi(self)
+        self.ui.finishButton.clicked.connect(self.saveSender)
     
     def saveSender(self):
         senderData ={
-            "name": self.ui.nameInput.toPlainText(),
-            "email": self.ui.emailInput.toPlainText(),
-            "phone": self.ui.phoneNumberInput.toPlainText(),
-            "notify": self.ui.notificationCheckBox.isChecked()
+            "Name": self.ui.nameInput.toPlainText(),
+            "Email": self.ui.emailInput.toPlainText(),
+            "Phone": self.ui.phoneNumberInput.toPlainText(),
+            "Notify": self.ui.notificationCheckBox.isChecked()
         }
         from yamlManager import add_sender
         add_sender(senderData)
+
+    
 
 class ReceiverDialog(QDialog):
     def __init__(self):
         super().__init__()
         self.ui = Ui_senderFrame()
         self.ui.setupUi(self)
-    
+        self.ui.finishButton.clicked.connect(self.saveReceiver)
+
     def saveReceiver(self):
         receiverData = {
             "Contact Name": self.ui.contactInsert.toPlainText(),
