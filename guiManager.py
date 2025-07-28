@@ -3,6 +3,7 @@ from mainGUI import Ui_mainFrame
 from senderGUI import Ui_SenderInformation
 from receiverGUI import Ui_senderFrame
 from PyQt5.QtCore import QDate
+from excelCreate import ExcelCreate
 
 progress = 0
 
@@ -61,6 +62,7 @@ class MainDialog(QDialog):
         self.ui.newSenderButton.clicked.connect(self.open_sender_dialog)
         self.ui.newReceiverButton.clicked.connect(self.openReceiverDialog)
         self.ui.setTodayDateButton.clicked.connect(self.setTodayDate)
+        self.ui.finishButton.clicked.connect(self.finishUpdatingSettings)
         self.updateGUI()
 
     #open sender screen
@@ -79,6 +81,11 @@ class MainDialog(QDialog):
         self.ui.dateEdit.setDate(today)
         progress=25
         self.ui.progressBar.setValue(progress)
+    
+    def finishUpdatingSettings(self):
+        
+        ExcelCreate.copyExcel()
+        
 
     def updateGUI(self):
         from yamlManager import get_receivers
