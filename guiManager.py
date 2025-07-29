@@ -4,6 +4,7 @@ from senderGUI import Ui_SenderInformation
 from receiverGUI import Ui_senderFrame
 from PyQt5.QtCore import QDate
 from excelCreate import ExcelCreate
+import xlwings as xw
 
 progress = 0
 
@@ -83,9 +84,60 @@ class MainDialog(QDialog):
         self.ui.progressBar.setValue(progress)
     
     def finishUpdatingSettings(self):
+        import yamlManager
         
-        ExcelCreate.copyExcel()
+        destFile = ExcelCreate.copyExcel()
+        wb = xw.Book(destFile)
+        sheet = wb.sheets["Sheet1"]
         
+        receiverName = self.ui.receiverSelect.currentText()
+        senderName = self.ui.senderSelect.currentText()
+        
+        date = self.ui.dateEdit.date().toString("yyyy-MM-dd")
+
+        mdanC = self.ui.mdanCQuaInput.value()
+        mdbnB = self.ui.mdbnBInput.value()
+        mgao = self.ui.mgaoAInput.value()
+        mdbo = self.ui.mdboAInput.value()
+        
+
+        sender = yamlManager.get_sender_by_name(senderName)
+        if sender:
+            senderEmail = sender.get("Email")
+            senderPhone = sender.get("Phone")
+
+        receiver = yamlManager.get_receiver_by_name(receiverName)
+        if receiver:
+            receiverPhone = receiver.get("Contact Number")
+            receiverCity = receiver.get("City")
+            receiverPostal = receiver.get("Postal")
+            receiverCompany = receiver.get("Company")
+            receiverCountry = receiver.get("Country")
+
+        sheet.range((5,7)).value = date
+
+        #sender inputs
+        sheet.range((8,3)).value = senderName
+        sheet.range((9,3)).value = senderPhone
+        sheet.range((10,3)).value = senderEmail
+
+        sheet.range((7,7)).value = receiverCompany
+        sheet.range((8,9)).value = receiverCompany
+        sheet.range((9,9)).value = receiverName
+        sheet.range((10,9)).value = receiverPhone
+        sheet.range((13,9)).value = receiverCity
+        sheet.range((15,9)).value = receiverPostal
+        sheet.range((16,9)).value = receiverCountry
+
+        
+
+
+
+
+    
+
+
+
 
     def updateGUI(self):
         from yamlManager import get_receivers

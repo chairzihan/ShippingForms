@@ -1,13 +1,11 @@
-
 import shutil as shu
 from pathlib import Path
 import os
+import yamlManager
 
 
 class ExcelCreate(): 
-
-
-
+   
     def copyExcel():
             import datetime
             source = r"Shipping_Request_Template.xlsm"
@@ -22,5 +20,5 @@ class ExcelCreate():
             shu.copy(source, dest_file)
             print(f"created file called: {dest_file}")
             os.startfile(dest_file)
-        
-   
+            return dest_file
+    
