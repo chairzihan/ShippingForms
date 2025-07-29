@@ -7,6 +7,27 @@ from excelCreate import ExcelCreate
 import xlwings as xw
 
 progress = 0
+countryOfOrigin ="THAILAND"
+
+#mdanC defaults
+mdanCDescription = "50G ONU optical transceiver for PON"
+mdanCPartNumber = ""
+mdanCPrice = "$250.00"
+
+#mdbnB defaults
+mdbnBDescription = "50G ONU optical transceiver for PON"
+mdbnBPartNumber = ""
+mdbnBPrice = "$250.00"
+
+#mgaoA defaults
+mgaoADescription = "50G ONU optical transceiver for PON"
+mgaoAPartNumber = ""
+mgaoAPrice = "$250.00"
+#mdanC defaults
+mdboDescription = "50G ONU optical transceiver for PON"
+mdboPartNumber = ""
+mdboPrice = "$250.00"
+
 
 class SenderDialog(QDialog):
     def __init__(self, main_dialog):
@@ -132,20 +153,35 @@ class MainDialog(QDialog):
         sheet.range((15,9)).value = receiverPostal
         sheet.range((16,9)).value = receiverCountry
         sheet.range((11,9)).value = receiverAddress
+        
+        if mdanC>0:
+             sheet.range((27,9)).value = mdanC
+             sheet.range((27,2)).value = mdanCPartNumber
+             sheet.range((27,4)).value = mdanCDescription
+             sheet.range((27,10)).value = mdanCPrice
+             sheet.range((27,11)).value = countryOfOrigin
+        if mdbnB>0:
+             sheet.range((28,9)).value = mdbnB
+             sheet.range((28,2)).value = mdbnBPartNumber
+             sheet.range((28,4)).value = mdbnBDescription
+             sheet.range((28,10)).value = mdbnBPrice
+             sheet.range((28,11)).value = countryOfOrigin
+        if mgao>0:
+             sheet.range((29,9)).value = mgao
+             sheet.range((29,2)).value = mgaoAPartNumber
+             sheet.range((29,4)).value = mgaoADescription
+             sheet.range((29,10)).value = mgaoAPrice
+             sheet.range((29,11)).value = countryOfOrigin
+        if mdbo>0:
+             sheet.range((30,9)).value = mdbo
+             sheet.range((30,2)).value = mdboPartNumber
+             sheet.range((30,4)).value = mdboDescription
+             sheet.range((30,10)).value = mdboPrice
+             sheet.range((30,11)).value = countryOfOrigin
+        
         wb.save()
         
         
-
-
-
-
-
-
-
-
-    
-
-
 
 
     def updateGUI(self):
