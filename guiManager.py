@@ -45,15 +45,13 @@ class ReceiverDialog(QDialog):
             "City": self.ui.cityInsert.toPlainText(),
             "Company": self.ui.companyNameInsert.toPlainText(),                
             "Postal": self.ui.postalZipInsert.toPlainText(),
-            "Country": self.ui.countryInsert.toPlainText()
+            "Country": self.ui.countryInsert.toPlainText(),
+            "Address": self.ui.addressInsert.toPlainText(),
+            "Location": self.ui.destinationAddressInsert.toPlainText()
             }
         from yamlManager import add_receiver
         add_receiver(receiverData)
         self.main_dialog.updateGUI()
-    
-    
-
-    
 
 class MainDialog(QDialog):
     def __init__(self):
@@ -113,6 +111,8 @@ class MainDialog(QDialog):
             receiverPostal = receiver.get("Postal")
             receiverCompany = receiver.get("Company")
             receiverCountry = receiver.get("Country")
+            receiverAddress = receiver.get("Address")
+            receiverDestination = receiver.get("Location")
 
         sheet.range((5,7)).value = date
 
@@ -121,15 +121,20 @@ class MainDialog(QDialog):
         sheet.range((9,3)).value = senderPhone
         sheet.range((10,3)).value = senderEmail
 
-        sheet.range((7,7)).value = receiverCompany
+        #receiver inputs
+        sheet.range((7,7)).value = receiverDestination
         sheet.range((8,9)).value = receiverCompany
         sheet.range((9,9)).value = receiverName
         sheet.range((10,9)).value = receiverPhone
         sheet.range((13,9)).value = receiverCity
         sheet.range((15,9)).value = receiverPostal
         sheet.range((16,9)).value = receiverCountry
-
+        sheet.range((11,9)).value = receiverAddress
         
+
+
+
+
 
 
 

@@ -16,10 +16,10 @@ class Ui_senderFrame(object):
     def setupUi(self, senderFrame):
         if not senderFrame.objectName():
             senderFrame.setObjectName(u"senderFrame")
-        senderFrame.resize(700, 525)
+        senderFrame.resize(700, 650)
         self.finishButton = QDialogButtonBox(senderFrame)
         self.finishButton.setObjectName(u"finishButton")
-        self.finishButton.setGeometry(QRect(70, 440, 600, 50))
+        self.finishButton.setGeometry(QRect(70, 530, 560, 50))
         self.finishButton.setOrientation(Qt.Horizontal)
         self.finishButton.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
         self.companyNameInsert = QPlainTextEdit(senderFrame)
@@ -46,6 +46,12 @@ class Ui_senderFrame(object):
         self.addressInsert = QPlainTextEdit(senderFrame)
         self.addressInsert.setObjectName(u"addressInsert")
         self.addressInsert.setGeometry(QRect(370, 230, 320, 50))
+        self.destinationLabel = QLabel(senderFrame)
+        self.destinationLabel.setObjectName(u"destinationLabel")
+        self.destinationLabel.setGeometry(QRect(20, 420, 180, 30))
+        self.destinationAddressInsert = QPlainTextEdit(senderFrame)
+        self.destinationAddressInsert.setObjectName(u"destinationAddressInsert")
+        self.destinationAddressInsert.setGeometry(QRect(20, 450, 670, 60))
         self.postalZip = QLabel(senderFrame)
         self.postalZip.setObjectName(u"postalZip")
         self.postalZip.setGeometry(QRect(20, 80, 180, 30))
@@ -85,5 +91,6 @@ class Ui_senderFrame(object):
         self.countryLabel.setText(QCoreApplication.translate("senderFrame", u"Country", None))
         self.cityLabel.setText(QCoreApplication.translate("senderFrame", u"City", None))
         self.dialogLabel.setText(QCoreApplication.translate("senderFrame", u"Sender Profile", None))
+        self.destinationLabel.setText(QCoreApplication.translate("senderFrame", u"Destination Address", None))
     # retranslateUi
 
