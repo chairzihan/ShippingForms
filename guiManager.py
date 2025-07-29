@@ -10,23 +10,23 @@ progress = 0
 countryOfOrigin ="THAILAND"
 
 #mdanC defaults
-mdanCDescription = "50G ONU optical transceiver for PON"
-mdanCPartNumber = ""
+mdanCDescription = "50Ga OLT Optical Transceiver for PON"
+mdanCPartNumber = "3TN01273BCAA"
 mdanCPrice = "$250.00"
 
 #mdbnB defaults
-mdbnBDescription = "50G ONU optical transceiver for PON"
-mdbnBPartNumber = ""
+mdbnBDescription = "50Ga ONU Optical Transceiver for PON"
+mdbnBPartNumber = "3TN00704CBAA"
 mdbnBPrice = "$250.00"
 
 #mgaoA defaults
-mgaoADescription = "50G ONU optical transceiver for PON"
-mgaoAPartNumber = ""
-mgaoAPrice = "$250.00"
+mgaoADescription = "50Gs OLT Optical Transceiver for PON"
+mgaoAPartNumber = "3FE79858AAAA"
+mgaoAPrice = "$1000.00"
 #mdanC defaults
-mdboDescription = "50G ONU optical transceiver for PON"
-mdboPartNumber = ""
-mdboPrice = "$250.00"
+mdboDescription = "50Gs ONU Optical Transceiver for PON "
+mdboPartNumber = "3FE49859CAAA"
+mdboPrice = "$1000.00"
 
 
 class SenderDialog(QDialog):
@@ -180,9 +180,6 @@ class MainDialog(QDialog):
              sheet.range((30,11)).value = countryOfOrigin
         
         wb.save()
-        
-        
-
 
     def updateGUI(self):
         from yamlManager import get_receivers

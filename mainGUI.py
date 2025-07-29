@@ -44,11 +44,6 @@ class Ui_mainFrame(object):
         self.setTodayDateButton.setObjectName(u"setTodayDateButton")
         self.setTodayDateButton.setGeometry(QRect(40, 110, 151, 32))
 
-        self.dateButtonBox = QDialogButtonBox(mainFrame)
-        self.dateButtonBox.setObjectName(u"dateButtonBox")
-        self.dateButtonBox.setGeometry(QRect(40, 150, 151, 32))
-        self.dateButtonBox.setStandardButtons(QDialogButtonBox.Cancel | QDialogButtonBox.Ok)
-
         self.dateLabel = QLabel(mainFrame)
         self.dateLabel.setObjectName(u"dateLabel")
         self.dateLabel.setGeometry(QRect(40, 40, 121, 31))
