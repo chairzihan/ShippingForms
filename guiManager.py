@@ -114,6 +114,8 @@ class MainDialog(QDialog):
             receiverAddress = receiver.get("Address")
             receiverDestination = receiver.get("Location")
 
+        
+
         sheet.range((5,7)).value = date
 
         #sender inputs
@@ -130,6 +132,8 @@ class MainDialog(QDialog):
         sheet.range((15,9)).value = receiverPostal
         sheet.range((16,9)).value = receiverCountry
         sheet.range((11,9)).value = receiverAddress
+        wb.save()
+        
         
 
 

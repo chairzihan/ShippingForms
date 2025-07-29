@@ -28,13 +28,13 @@ def get_receivers():
 def get_sender_by_name(name):
     senders = get_senders()
     for sender in senders:
-        if sender.get('name') == name:
+        if sender.get('Name') == name:
             return sender
     return None
 
 def get_receiver_by_name(name):
     receivers = get_receivers()
     for receiver in receivers:
-        if receiver.get('name') == name:
+        if receiver.get("Contact Name") == name:
             return receiver
     return None
