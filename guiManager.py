@@ -5,6 +5,8 @@ from receiverGUI import Ui_senderFrame
 from PyQt5.QtCore import QDate
 from excelCreate import ExcelCreate
 import xlwings as xw
+from PyQt5.QtCore import Qt
+
 
 progress = 0
 countryOfOrigin ="THAILAND"
@@ -74,6 +76,26 @@ class ReceiverDialog(QDialog):
         add_receiver(receiverData)
         self.main_dialog.updateGUI()
 
+        self.setTabOrder(self.ui.postalZipInsert,self.ui.countryInsert)
+        self.setTabOrder(self.ui.countryInsert,self.ui.cityInsert)
+        self.setTabOrder(self.ui.cityInsert,self.ui.contactPhoneInsert)
+        self.setTabOrder(self.ui.contactPhoneInsert,self.ui.addressInsert)
+        self.setTabOrder(self.ui.addressInsert,self.ui.companyNameInsert)
+        self.setTabOrder(self.ui.companyNameInsert,self.ui.contactInsert)
+        self.setTabOrder(self.ui.contactInsert,self.ui.destinationAddressInsert)
+        self.setTabOrder(self.ui.destinationAddressInsert,self.ui.finishButton)
+        self.setTabOrder(self.ui.finishButton,self.ui.postalZipInsert)
+
+        self.ui.postalZipInsert.setFocusPolicy(Qt.StrongFocus)
+        self.ui.countryInsert.setFocusPolicy(Qt.StrongFocus)
+        self.ui.cityInsert.setFocusPolicy(Qt.StrongFocus)
+        self.ui.contactPhoneInsert.setFocusPolicy(Qt.StrongFocus)
+        self.ui.addressInsert.setFocusPolicy(Qt.StrongFocus)
+        self.ui.companyNameInsert.setFocusPolicy(Qt.StrongFocus)
+        self.ui.contactInsert.setFocusPolicy(Qt.StrongFocus)
+        self.ui.destinationAddressInsert.setFocusPolicy(Qt.StrongFocus)
+
+
 class MainDialog(QDialog):
     def __init__(self):
         super().__init__()
@@ -84,7 +106,14 @@ class MainDialog(QDialog):
         self.ui.setTodayDateButton.clicked.connect(self.setTodayDate)
         self.ui.finishButton.clicked.connect(self.finishUpdatingSettings)
         self.updateGUI()
-
+        self.setTabOrder(self.ui.dateEdit, self.ui.newSenderButton)
+        self.setTabOrder(self.ui.newSenderButton, self.ui.newReceiverButton)
+        self.setTabOrder(self.ui.newReceiverButton, self.ui.mdanCQuaInput)
+        self.setTabOrder(self.ui.mdanCQuaInput, self.ui.mdbnBInput)
+        self.setTabOrder(self.ui.mdbnBInput, self.ui.mgaoAInput)
+        self.setTabOrder(self.ui.mgaoAInput, self.ui.mdboAInput)
+        self.setTabOrder( self.ui.mdboAInput, self.ui.finishButton)
+        
     #open sender screen
     def open_sender_dialog(self):
         dialog = SenderDialog(self)
