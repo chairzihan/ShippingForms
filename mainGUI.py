@@ -11,9 +11,7 @@
 from PyQt5.QtWidgets import QDialogButtonBox, QComboBox, QProgressBar, QDateEdit, QPushButton, QLabel, QLineEdit, QSpinBox
 from PyQt5.QtCore import QCoreApplication, QRect, QMetaObject
 
-from senderGUI import Ui_SenderInformation
 
-import sys
 
 
 # Main UI class for the Shipping Form
