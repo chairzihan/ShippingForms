@@ -5,12 +5,14 @@ from receiverGUI import Ui_senderFrame
 from PyQt5.QtCore import QDate
 from excelCreate import ExcelCreate
 import xlwings as xw
+import createEmail
+import printer
 from PyQt5.QtCore import Qt
 
 
 progress = 0
 countryOfOrigin ="THAILAND"
-
+emailOfKanata = "something@gmail.com"
 #mdanC defaults
 mdanCDescription = "50Ga OLT Optical Transceiver for PON"
 mdanCPartNumber = "3TN01273BCAA"
@@ -209,6 +211,8 @@ class MainDialog(QDialog):
              sheet.range((30,11)).value = countryOfOrigin
         
         wb.save()
+        printer.printExcel(destFile)
+        createEmail.draft_email(senderEmail)
 
     def updateGUI(self):
         from yamlManager import get_receivers

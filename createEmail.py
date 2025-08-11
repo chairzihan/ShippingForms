@@ -1,14 +1,14 @@
 import win32com.client as win32
 import time
 
-def draft_email():
+def draft_email(email):
     outlook = win32.Dispatch('outlook.application')
 
     mail = outlook.CreateItem(0)
 
-    mail.To = "andrew.cameron@nokia.com"
-    mail.Subject = "Test email (drafted using Python)"
-    mail.Body = "Hello Andrew from Python!"
+    mail.To = email
+    mail.Subject = "Module Shipping"
+    mail.Body = "The excel file for a shipment of PON modules is attached to this e-mail."
 
     # mail.Attachments.Add("C:\\path\\to\\attachment.pdf")
 
@@ -16,10 +16,3 @@ def draft_email():
     mail.Display()
 
     # time.sleep(5)
-
-
-
-
-if __name__ == "__main__":
-    print("## Running outlook_draft_test.py ##")
-    draft_email()
