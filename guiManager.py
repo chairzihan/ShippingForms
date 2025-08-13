@@ -211,8 +211,8 @@ class MainDialog(QDialog):
              sheet.range((30,11)).value = countryOfOrigin
         
         wb.save()
-        printer.printExcel(destFile)
-        createEmail.draft_email(senderEmail)
+        printer.print_excel(destFile)
+        createEmail.draft_email(senderEmail, destFile)
 
     def updateGUI(self):
         from yamlManager import get_receivers
